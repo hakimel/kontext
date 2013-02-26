@@ -104,25 +104,3 @@
 }
 
 
-/* Dimmer */
-
-.kontext .layer .dimmer {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	visibility: hidden;
-	opacity: 0;
-	background: rgba( 0, 0, 0, 0.8 );
-}
-
-	.kontext.capable.animate .layer .dimmer {
-		-webkit-transition: all 1s ease;
-	}
-
-	.kontext.capable.animate .layer.hide .dimmer {
-		visibility: visible;
-		opacity: 1;
-	}
-

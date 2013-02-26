@@ -5,7 +5,7 @@
  *
  * Copyright (C) 2013 Hakim El Hattab, http://hakim.se
  */
-window.kontext = function( container, options ) {
+window.kontext = function( container ) {
 
 	// Dispatched when the current layer changes
 	var changed = new kontext.Signal();
@@ -53,10 +53,6 @@ window.kontext = function( container, options ) {
 					el.classList.add( 'hide' );
 
 					current = i;
-
-					// if( options && options.dim && !el.querySelector( '.dimmer' ) ) {
-					// 	el.innerHTML += '';
-					// }
 				}
 				else {
 					el.classList.remove( 'hide' );

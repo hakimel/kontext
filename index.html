@@ -4,7 +4,7 @@
 
 		<meta charset="utf-8">
 
-		<title>Kontext: iOS style context-shift transition</title>
+		<title>Kontext: A context-shift transition inspired by iOS</title>
 
 		<meta name="description" content="A context-shift transition inspired by iOS. Created using JavaScript, CSS 3D transforms and CSS Animations.">
 		<meta name="author" content="Hakim El Hattab">
@@ -33,12 +33,14 @@
 
 		<ul class="bullets"></ul>
 
-		<p class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></p>
+
+		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A CSS 3D page transition created by @hakimel" data-size="" data-related="hakimel" data-count="none">Tweet</a></div>
+		<div class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></div>
 
 		<script src="js/kontext.js"></script>
 		<script>
 			// Create a new instance of kontext
-			var k = kontext( document.querySelector( '.kontext' ), { dim: true } );
+			var k = kontext( document.querySelector( '.kontext' ) );
 
 
 			// API METHODS:
@@ -77,6 +79,8 @@
 			}, false );
 
 		</script>
+
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 	</body>
 </html>
