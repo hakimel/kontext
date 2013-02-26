@@ -46,54 +46,103 @@
 	        transform: translateZ( 0px );
 }
 
-.kontext.capable.animate .layer.show {
-	-webkit-animation: show 1s forwards ease;
-	   -moz-animation: show 1s forwards ease;
-	        animation: show 1s forwards ease;
+.kontext.capable.animate .layer.show.right {
+	-webkit-animation: show-right 1s forwards ease;
+	   -moz-animation: show-right 1s forwards ease;
+	        animation: show-right 1s forwards ease;
 }
 
-.kontext.capable.animate .layer.hide {
-	-webkit-animation: hide 1s forwards ease;
-	   -moz-animation: hide 1s forwards ease;
-	        animation: hide 1s forwards ease;
+.kontext.capable.animate .layer.hide.right {
+	-webkit-animation: hide-right 1s forwards ease;
+	   -moz-animation: hide-right 1s forwards ease;
+	        animation: hide-right 1s forwards ease;
+}
+
+.kontext.capable.animate .layer.show.left {
+	-webkit-animation: show-left 1s forwards ease;
+	   -moz-animation: show-left 1s forwards ease;
+	        animation: show-left 1s forwards ease;
+}
+
+.kontext.capable.animate .layer.hide.left {
+	-webkit-animation: hide-left 1s forwards ease;
+	   -moz-animation: hide-left 1s forwards ease;
+	        animation: hide-left 1s forwards ease;
 }
 
 
 /* CSS animation keyframes */
 
-@-webkit-keyframes show {
+@-webkit-keyframes show-right {
 	0%   { -webkit-transform: translateZ( -200px ); }
 	40%  { -webkit-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { -webkit-transform: translateZ( 0px ); }
 }
 
-@-webkit-keyframes hide {
+@-webkit-keyframes hide-right {
 	0%   { -webkit-transform: translateZ( 0px ); visibility: visible; }
 	40%  { -webkit-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { -webkit-transform: translateZ( -200px ); visibility: hidden; }
 }
 
-@-moz-keyframes show {
+@-moz-keyframes show-right {
 	0%   { -moz-transform: translateZ( -200px ); }
 	40%  { -moz-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { -moz-transform: translateZ( 0px ); }
 }
 
-@-moz-keyframes hide {
+@-moz-keyframes hide-right {
 	0%   { -moz-transform: translateZ( 0px ); visibility: visible; }
 	40%  { -moz-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { -moz-transform: translateZ( -200px ); visibility: hidden; }
 }
 
-@keyframes show {
+@keyframes show-right {
 	0%   { transform: translateZ( -200px ); }
 	40%  { transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { transform: translateZ( 0px ); }
 }
 
-@keyframes hide {
+@keyframes hide-right {
 	0%   { transform: translateZ( 0px ); visibility: visible; }
 	40%  { transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { transform: translateZ( -200px ); visibility: hidden; }
+}
+
+
+@-webkit-keyframes show-left {
+	0%   { -webkit-transform: translateZ( -200px ); }
+	40%  { -webkit-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -webkit-transform: translateZ( 0px ); }
+}
+
+@-webkit-keyframes hide-left {
+	0%   { -webkit-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -webkit-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -webkit-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@-moz-keyframes show-left {
+	0%   { -moz-transform: translateZ( -200px ); }
+	40%  { -moz-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -moz-transform: translateZ( 0px ); }
+}
+
+@-moz-keyframes hide-left {
+	0%   { -moz-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -moz-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -moz-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@keyframes show-left {
+	0%   { transform: translateZ( -200px ); }
+	40%  { transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { transform: translateZ( 0px ); }
+}
+
+@keyframes hide-left {
+	0%   { transform: translateZ( 0px ); visibility: visible; }
+	40%  { transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { transform: translateZ( -200px ); visibility: hidden; }
 }
 

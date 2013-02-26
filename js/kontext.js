@@ -34,13 +34,16 @@ window.kontext = function( container ) {
 	 *
 	 * @param target index of layer or layer DOM element
 	 */
-	function show( target ) {
+	function show( target, direction ) {
 
 		// Make sure our listing of available layers is up to date
 		layers = Array.prototype.slice.call( container.querySelectorAll( '.layer' ) );
 
 		// Flag to CSS that we're ready to animate transitions
 		container.classList.add( 'animate' );
+
+		// Flag which direction
+		direction = direction || ( target > getIndex() ? 'right' : 'left' );
 
 		// Accept multiple types of targets
 		if( typeof target === 'string' ) target = parseInt( target );
@@ -53,6 +56,8 @@ window.kontext = function( container ) {
 		if( layers[ target ] && !layers[ target ].classList.contains( 'show' ) ) {
 
 			layers.forEach( function( el, i ) {
+				el.classList.remove( 'left', 'right' );
+				el.classList.add( direction );
 				if( el.classList.contains( 'show' ) ) {
 					el.classList.remove( 'show' );
 					el.classList.add( 'hide' );
@@ -76,7 +81,7 @@ window.kontext = function( container ) {
 	function prev() {
 
 		var index = getIndex() - 1;
-		show( index >= 0 ? index : layers.length + index );
+		show( index >= 0 ? index : layers.length + index, 'left' );
 
 	}
 
@@ -85,7 +90,7 @@ window.kontext = function( container ) {
 	 */
 	function next() {
 
-		show( ( getIndex() + 1 ) % layers.length );
+		show( ( getIndex() + 1 ) % layers.length, 'right' );
 
 	}
 
