@@ -24,6 +24,11 @@ window.kontext = function( container ) {
 		container.classList.add( 'capable' );
 	}
 
+	// Firefox crawls with box-shadows enabled...
+	if( /firefox/gi.test( navigator.userAgent ) ) {
+		container.classList.add( 'no-shadow' );
+	}
+
 	/**
 	 * Transitions to and shows the target layer.
 	 *

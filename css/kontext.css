@@ -20,6 +20,10 @@
 	box-shadow: 0px 0px 120px rgba( 0, 0, 0, 0.8 );
 }
 
+.kontext.no-shadow .layer {
+	box-shadow: none;
+}
+
 .kontext .layer.show {
 	visibility: visible;
 }
@@ -102,5 +106,6 @@
 	40%  { transform: translate3d( -40%, 0, -200px ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { transform: translateZ( -200px ); visibility: hidden; }
 }
+
 
 
