@@ -17,11 +17,7 @@
 	top: 0;
 	left: 0;
 	visibility: hidden;
-	box-shadow: 0px 0px 120px rgba( 0, 0, 0, 0.8 );
-}
-
-.kontext.no-shadow .layer {
-	box-shadow: none;
+	/*box-shadow: 0px 0px 120px rgba( 0, 0, 0, 0.8 );*/
 }
 
 .kontext .layer.show {
@@ -50,12 +46,6 @@
 	        transform: translateZ( 0px );
 }
 
-.kontext.capable .layer.hide {
-	-webkit-animation: hide 1ms forwards ease;
-	   -moz-animation: hide 1ms forwards ease;
-	        animation: hide 1ms forwards ease;
-}
-
 .kontext.capable.animate .layer.show {
 	-webkit-animation: show 1s forwards ease;
 	   -moz-animation: show 1s forwards ease;
@@ -63,9 +53,9 @@
 }
 
 .kontext.capable.animate .layer.hide {
-	-webkit-animation-duration: 1s;
-	   -moz-animation-duration: 1s;
-	        animation-duration: 1s;
+	-webkit-animation: hide 1s forwards ease;
+	   -moz-animation: hide 1s forwards ease;
+	        animation: hide 1s forwards ease;
 }
 
 
@@ -73,39 +63,62 @@
 
 @-webkit-keyframes show {
 	0%   { -webkit-transform: translateZ( -200px ); }
-	40%  { -webkit-transform: translate3d( 40%, 0, -200px ) scale( 0.8 ) rotateY( -20deg ); }
+	40%  { -webkit-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { -webkit-transform: translateZ( 0px ); }
 }
 
 @-webkit-keyframes hide {
 	0%   { -webkit-transform: translateZ( 0px ); visibility: visible; }
-	40%  { -webkit-transform: translate3d( -40%, 0, -200px ) scale( 0.8 ) rotateY( 20deg ); }
+	40%  { -webkit-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { -webkit-transform: translateZ( -200px ); visibility: hidden; }
 }
 
 @-moz-keyframes show {
 	0%   { -moz-transform: translateZ( -200px ); }
-	40%  { -moz-transform: translate3d( 40%, 0, -200px ) scale( 0.8 ) rotateY( -20deg ); }
+	40%  { -moz-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { -moz-transform: translateZ( 0px ); }
 }
 
 @-moz-keyframes hide {
 	0%   { -moz-transform: translateZ( 0px ); visibility: visible; }
-	40%  { -moz-transform: translate3d( -40%, 0, -200px ) scale( 0.8 ) rotateY( 20deg ); }
+	40%  { -moz-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { -moz-transform: translateZ( -200px ); visibility: hidden; }
 }
 
 @keyframes show {
 	0%   { transform: translateZ( -200px ); }
-	40%  { transform: translate3d( 40%, 0, -200px ) scale( 0.8 ) rotateY( -20deg ); }
+	40%  { transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
 	100% { transform: translateZ( 0px ); }
 }
 
 @keyframes hide {
 	0%   { transform: translateZ( 0px ); visibility: visible; }
-	40%  { transform: translate3d( -40%, 0, -200px ) scale( 0.8 ) rotateY( 20deg ); }
+	40%  { transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
 	100% { transform: translateZ( -200px ); visibility: hidden; }
 }
 
 
+/* Dimmer */
+
+.kontext .layer .dimmer {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	background: transparent;
+}
+
+	.kontext.capable.animate .layer .dimmer {
+		-webkit-transition: background 1s ease;
+		   -moz-transition: background 1s ease;
+		        transition: background 1s ease;
+	}
+
+	.kontext.capable.animate .layer.hide .dimmer {
+		visibility: visible;
+		background: rgba( 0, 0, 0, 0.7 );
+	}
 

@@ -33,8 +33,8 @@
 
 		<ul class="bullets"></ul>
 
+		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A context-shifting page transition by @hakimel" data-size="" data-related="hakimel" data-count="none">Tweet</a></div>
 
-		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A CSS 3D page transition created by @hakimel" data-size="" data-related="hakimel" data-count="none">Tweet</a></div>
 		<div class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></div>
 
 		<script src="js/kontext.js"></script>
@@ -62,6 +62,7 @@
 				bullet.className = i === 0 ? 'active' : '';
 				bullet.setAttribute( 'index', i );
 				bullet.onclick = function( event ) { k.show( event.target.getAttribute( 'index' ) ) };
+				bullet.ontouchstart = function( event ) { k.show( event.target.getAttribute( 'index' ) ) };
 				bulletsContainer.appendChild( bullet );
 			}
 

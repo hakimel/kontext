@@ -24,10 +24,10 @@ window.kontext = function( container ) {
 		container.classList.add( 'capable' );
 	}
 
-	// Firefox crawls with box-shadows enabled...
-	if( /firefox/gi.test( navigator.userAgent ) ) {
-		container.classList.add( 'no-shadow' );
-	}
+	// Create dimmer elements to fade out preceding slides
+	layers.forEach( function( el, i ) {
+		if( !el.querySelector( '.dimmer' ) ) el.innerHTML += '<div class="dimmer"></div>';
+	} );
 
 	/**
 	 * Transitions to and shows the target layer.
@@ -56,8 +56,6 @@ window.kontext = function( container ) {
 				if( el.classList.contains( 'show' ) ) {
 					el.classList.remove( 'show' );
 					el.classList.add( 'hide' );
-
-					current = i;
 				}
 				else {
 					el.classList.remove( 'hide' );
