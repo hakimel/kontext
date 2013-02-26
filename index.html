@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>Kontext: iOS style context shift transition</title>
+
+		<meta name="description" content="A page transition effect inspired by iOS. Created using CSS3 animations and 3D transforms.">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/kontext.css">
+		<link rel="stylesheet" href="css/demo.css">
+
+	</head>
+	<body>
+
+		<article class="kontext">
+			<div class="layer one show">
+				<h2>Kontext</h2>
+				<p>A page transition effect. Use the dots below or your keyoard arrows.</p>
+
+				<a href="https://github.com/hakimel/kontext"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+			</div>
+			<div class="layer two">
+				<h2>Layer Two</h2>
+			</div>
+			<div class="layer three">
+				<h2>Layer Three</h2>
+			</div>
+		</article>
+
+		<ul class="bullets"></ul>
+
+		<p class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></p>
+
+		<script src="js/kontext.js"></script>
+		<script>
+			// Create a new instance of kontext
+			var k = kontext( document.querySelector( '.kontext' ), { dim: true } );
+
+
+			// API METHODS:
+
+			// k.prev(); // Show prev layer
+			// k.next(); // Show next layer
+			// k.show( 3 ); // Show specific layer
+			// k.getIndex(); // Index of current layer
+			// k.getTotal(); // Total number of layers
+
+
+			// DEMO-SPECIFIC:
+
+			var bulletsContainer = document.body.querySelector( '.bullets' );
+
+			// Create one bullet per layer
+			for( var i = 0, len = k.getTotal(); i < len; i++ ) {
+				var bullet = document.createElement( 'li' );
+				bullet.className = i === 0 ? 'active' : '';
+				bullet.setAttribute( 'index', i );
+				bullet.onclick = function( event ) { k.show( event.target.getAttribute( 'index' ) ) };
+				bulletsContainer.appendChild( bullet );
+			}
+
+			// Update the bullets when the layer changes
+			k.changed.add( function( layer, index ) {
+				var bullets = document.body.querySelectorAll( '.bullets li' );
+				for( var i = 0, len = bullets.length; i < len; i++ ) {
+					bullets[i].className = i === index ? 'active' : '';
+				}
+			} );
+
+			document.addEventListener( 'keyup', function( event ) {
+				if( event.keyCode === 37 ) k.prev();
+				if( event.keyCode === 39 ) k.next();
+			}, false );
+
+		</script>
+
+	</body>
+</html>
