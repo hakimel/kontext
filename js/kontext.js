@@ -26,7 +26,11 @@ window.kontext = function( container ) {
 
 	// Create dimmer elements to fade out preceding slides
 	layers.forEach( function( el, i ) {
-		if( !el.querySelector( '.dimmer' ) ) el.innerHTML += '<div class="dimmer"></div>';
+		if( !el.querySelector( '.dimmer' ) ) {
+			var dimmer = document.createElement( 'div' );
+			dimmer.className = 'dimmer';
+			el.appendChild( dimmer );
+		}
 	} );
 
 	/**

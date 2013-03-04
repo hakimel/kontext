@@ -158,16 +158,17 @@
 	left: 0;
 	visibility: hidden;
 	background: transparent;
+	z-index: 100;
 }
 
 	.kontext.capable.animate .layer .dimmer {
-		-webkit-transition: background 1s ease;
-		   -moz-transition: background 1s ease;
-		        transition: background 1s ease;
+		-webkit-transition: background 0.7s ease;
+		   -moz-transition: background 0.7s ease;
+		        transition: background 0.7s ease;
 	}
 
 	.kontext.capable.animate .layer.hide .dimmer {
 		visibility: visible;
-		background: rgba( 0, 0, 0, 0.7 );
+		background: rgba( 0, 0, 0, 0.8 );
 	}
 
