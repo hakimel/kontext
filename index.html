@@ -36,7 +36,8 @@
 		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A context-shifting page transition by @hakimel" data-size="" data-related="hakimel" data-count="none">Tweet</a></div>
 
 		<div class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></div>
-
+		
+		<script src="js/hammer.min.js"></script>
 		<script src="js/kontext.js"></script>
 		<script>
 			// Create a new instance of kontext
@@ -74,10 +75,20 @@
 				}
 			} );
 
-			document.addEventListener( 'keyup', function( event ) {
+			document.addEventListener( 'keyup,', function( event ) {
 				if( event.keyCode === 37 ) k.prev();
 				if( event.keyCode === 39 ) k.next();
 			}, false );
+			
+			// added swipe support for mobile devices 
+			// through http://eightmedia.github.com/hammer.js
+			var element = document.body;
+			Hammer(element).on('swipeleft', function(event) {
+				k.next();
+			});
+			Hammer(element).on('swiperight', function(event) {
+				k.prev();
+			});
 
 			var touchX = 0;
 			var touchConsumed = false;
